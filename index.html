@@ -47,22 +47,34 @@
 
     <script>
         const textData = {
-            "17": "いつもの休日のパターンを過ごして日が暮れる",
-            "25": "かわりびなは世相をつづる",
-            "26": "良い医師は患者の話をよく聞く",
-            "28": "天衣無縫おおらかなものだ"
+            "17": {
+                "japanese": "いつもの休日のパターンを過ごして日が暮れる",
+                "romaji": "itsumo no kyuujitsu no pataan wo sugoshite hi ga kureru"
+            },
+            "25": {
+                "japanese": "かわりびなは世相をつづる",
+                "romaji": "kawaribina wa sesou wo tsuzuru"
+            },
+            "26": {
+                "japanese": "良い医師は患者の話をよく聞く",
+                "romaji": "yoi ishi wa kanja no hanashi wo yoku kiku"
+            },
+            "28": {
+                "japanese": "天衣無縫おおらかなものだ",
+                "romaji": "ten'i muhhou ooraka na mono da"
+            }
         };
         const speakers = ["FAH", "MHM", "MKO", "MKT"];
         const contentsDiv = document.getElementById("contents");
 
         for (const textID in textData) {
-            const text = textData[textID];
+            const textInfo = textData[textID];
             
             const sectionDiv = document.createElement("div");
             sectionDiv.className = "section";
             
             const textHeader = document.createElement("h2");
-            textHeader.textContent = `TextID: ${textID} 「${text}」`;
+            textHeader.innerHTML = `TextID: ${textID} 「${textInfo.japanese}」<br><small style="font-weight: normal; color: #666;">${textInfo.romaji}</small>`;
             sectionDiv.appendChild(textHeader);
 
             speakers.forEach(speaker => {
